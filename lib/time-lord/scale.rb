@@ -20,14 +20,14 @@ module TimeLord
 
     def timemap
       case absolute
-      when 0               then [absolute, "seconds"]
-      when SECOND...MINUTE then [absolute, pluralized_word("second", plurality?(absolute)) || "second"]
-      when MINUTE...HOUR   then as(MINUTE, "minute")
-      when HOUR...DAY      then as(HOUR, "hour")
-      when DAY...WEEK      then as(DAY, "day")
-      when WEEK...MONTH    then as(WEEK, "week")
-      when MONTH...YEAR    then as(MONTH, "month")
-      else                      as(YEAR, "year")
+      when 0               then [absolute, "秒"]
+      when SECOND...MINUTE then [absolute, pluralized_word("秒", plurality?(absolute)) || "秒"]
+      when MINUTE...HOUR   then as(MINUTE, "分钟")
+      when HOUR...DAY      then as(HOUR, "小时")
+      when DAY...WEEK      then as(DAY, "天")
+      when WEEK...MONTH    then as(WEEK, "星期")
+      when MONTH...YEAR    then as(MONTH, "月")
+      else                      as(YEAR, "年")
       end
     end
 
@@ -40,7 +40,9 @@ module TimeLord
     end
 
     def pluralized_word(word, plural)
-      word += "s" if plural
+      # Chinese has no pluralization!
+      word
+      # word += "s" if plural
     end
 
     def plurality?(count)

@@ -21,58 +21,51 @@ class TestTimeLordPeriod < MiniTest::Unit::TestCase
     assert_equal(expected, actual)
   end
 
-  def test_from
-    expect = "some time period from a to b"
-    actual = 1.hour.from(@timestamp)
-    assert_equal(expected, actual)
-  end
+  # def test_from
+  #   expect = "some time period from a to b"
+  #   actual = 1.hour.from(@timestamp)
+  #   assert_equal(expected, actual)
+  # end
 
-  def test_to
-    expect = "some time period from a to b"
-    actual = 1.hour.to(@timestamp)
-    assert_equal(expected, actual)
-  end
+  # def test_to
+  #   expect = "some time period from a to b"
+  #   actual = 1.hour.to(@timestamp)
+  #   assert_equal(expected, actual)
+  # end
 
   def test_in_words_less_than_second_ago
-    expected = "less than a second away"
+    expected = "刚刚"
     actual = Time.now.ago.in_words
     assert_equal(expected, actual)
   end
 
   def test_in_words_less_than_second_from
-    expected = "less than a second away"
+    expected = "刚刚"
     actual = 0.seconds.from_now.in_words
     assert_equal(expected, actual)
   end
 
   def test_in_words_second
-    expected = "1 second ago"
+    expected = "1 秒前"
     actual = 1.second.ago.in_words
     assert_equal(expected, actual)
   end
 
   def test_in_words_plural
-    expected = "2 years ago"
+    expected = "2 年前"
     actual = 2.years.ago.in_words
     assert_equal(expected, actual)
   end
 
   def test_in_words_past_year
-    expected = "1 year ago"
+    expected = "1 年前"
     actual = 1.year.ago.in_words
     assert_equal(expected, actual)
   end
 
   def test_in_words_future_year
-    expected = "1 year from now"
+    expected = "1 年后"
     actual = 1.year.from_now.in_words
-    assert_equal(expected, actual)
-  end
-
-  def test_in_words_between_11_months_and_year
-    expected = "11 months from now"
-    Timecop.freeze(Time.local(2013, 1, 1))
-    actual = Time.local(2013, 12, 3).ago.in_words
     assert_equal(expected, actual)
   end
 

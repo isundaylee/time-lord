@@ -6,25 +6,25 @@ class TestTimeLordTime < MiniTest::Unit::TestCase
   end
 
   def test_to_words_past_seconds
-    expected = "50 seconds ago"
+    expected = "50 秒前"
     actual = TimeLord::Time.new(@timestamp - 50).period.to_words
     assert_equal(expected, actual)
   end
 
   def test_to_words_singular
-    expected = "1 minute ago"
+    expected = "1 分钟前"
     actual = TimeLord::Time.new(@timestamp - 60).period.to_words
     assert_equal(expected, actual)
   end
 
   def test_to_words_future_days
-    expected = "2 days ago"
+    expected = "2 天前"
     actual = TimeLord::Time.new(@timestamp - 172800).period.to_words
     assert_equal(expected, actual)
   end
 
   def test_to_words_future_days
-    expected = "2 days from now"
+    expected = "2 天后"
     actual = TimeLord::Time.new(@timestamp + 172800).period.to_words
     assert_equal(expected, actual)
   end

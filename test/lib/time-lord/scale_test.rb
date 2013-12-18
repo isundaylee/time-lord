@@ -14,19 +14,19 @@ class TestTimeLordScale < MiniTest::Unit::TestCase
   end
 
   def test_to_unit_second_single
-    expected = "second"
+    expected = "秒"
     actual = TimeLord::Scale.new(1).to_unit
     assert_equal(expected, actual)
   end
 
   def test_to_unit_single
-    expected = "hour"
+    expected = "小时"
     actual = TimeLord::Scale.new(3600).to_unit
     assert_equal(expected, actual)
   end
 
   def test_to_unit_multiple
-    expected = "hours"
+    expected = "小时"
     actual = TimeLord::Scale.new(7200).to_unit
     assert_equal(expected, actual)
   end
